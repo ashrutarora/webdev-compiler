@@ -35,7 +35,8 @@ const initialState: CompilerSliceStateType = {
         css:
             `body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #121212; /* Dark background color */
+    color: #e0e0e0; /* Light text color */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,10 +45,10 @@ const initialState: CompilerSliceStateType = {
 }
 
 .container {
-    background: white;
+    background: #1e1e1e; /* Dark background for the container */
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Darker shadow */
     width: 300px;
     text-align: center;
 }
@@ -60,21 +61,23 @@ input {
     width: calc(100% - 40px);
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #333; /* Darker border */
     border-radius: 3px;
+    background: #2c2c2c; /* Dark background for input */
+    color: #e0e0e0; /* Light text color */
 }
 
 button {
     padding: 10px 20px;
     border: none;
-    background-color: #28a745;
+    background-color: #4caf50; /* Dark green for button */
     color: white;
     border-radius: 3px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #45a049; /* Slightly darker green on hover */
 }
 
 ul {
@@ -84,8 +87,8 @@ ul {
 
 li {
     padding: 10px;
-    background: #f9f9f9;
-    border-bottom: 1px solid #ddd;
+    background: #333; /* Dark background for list items */
+    border-bottom: 1px solid #444; /* Slightly lighter border */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,19 +96,20 @@ li {
 
 li.completed {
     text-decoration: line-through;
-    color: #888;
+    color: #888; /* Light gray for completed items */
 }
 
 li button {
     background: none;
     border: none;
-    color: red;
+    color: #f44336; /* Red for button text */
     cursor: pointer;
 }
 
 li button:hover {
-    color: darkred;
-}`,
+    color: #d32f2f; /* Darker red on hover */
+}
+`,
         javascript:
         `document.getElementById('taskInput').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
