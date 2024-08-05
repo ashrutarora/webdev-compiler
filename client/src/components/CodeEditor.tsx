@@ -2,7 +2,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import React from "react";
 import { draculaInit } from "@uiw/codemirror-theme-dracula";
 import { tags as t } from "@lezer/highlight";
-import { loadLanguage, langNames, langs } from '@uiw/codemirror-extensions-langs';
+import { loadLanguage } from '@uiw/codemirror-extensions-langs';
 
 
 export default function CodeEditor() {
