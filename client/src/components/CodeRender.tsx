@@ -25,7 +25,7 @@ export default function CodeRender() {
 
     const iframeCode = `data:text/html;charset=utf-8,${encodeURIComponent(combinedCode)}`
     return (
-        <div className="w-full h-full border-l-red-500 border-2 pl-[0.8px]">
+        <div className="w-full h-full border-l-green-500 border-2 pl-[0.8px]">
             <iframe src={iframeCode} className="w-full h-full" />
         </div>
     );
