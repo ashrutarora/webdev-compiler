@@ -15,10 +15,7 @@ export default function CodeEditor() {
 
     const fullCode = useSelector((state: RootState) => state.compilerSlice.fullCode)
 
-    const [value, setValue] = React.useState("console.log('hello world!');");
     const onChange = React.useCallback((value: string) => {
-        // console.log("val:", val);
-        // setValue(val);
 
         dispatch(updateCodeValue(value))
     }, []);
@@ -26,6 +23,7 @@ export default function CodeEditor() {
         <CodeMirror
             value={fullCode[currentLanguage]}
             height="88vh"
+            className="code-editor"
             extensions={[loadLanguage(currentLanguage)!]}
             onChange={onChange}
             theme={draculaInit({

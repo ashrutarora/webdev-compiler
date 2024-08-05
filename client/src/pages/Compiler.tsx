@@ -5,6 +5,7 @@ import {
   ResizablePanelGroup,
 } from "../components/ui/resizable"
 import HelperHeader from "@/components/HelperHeader"
+import CodeRender from "@/components/CodeRender"
 
 export default function Compiler() {
   return (
@@ -16,7 +17,7 @@ export default function Compiler() {
       </ResizablePanel>
       <ResizableHandle />
       <ResizablePanel defaultSize={50} className="min-w-[350px] h-[calc(100dvh-60px)]">
-        Right Side
+        <CodeRender />
       </ResizablePanel>
     </ResizablePanelGroup>
   )
