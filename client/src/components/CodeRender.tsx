@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 export default function CodeRender() {
     const fullCode = useSelector((state: RootState) => state.compilerSlice.fullCode);
 
-    // Check if fullCode and its properties are defined
     if (!fullCode || !fullCode.html || !fullCode.css || !fullCode.javascript) {
         return <div>Loading...</div>;
     }

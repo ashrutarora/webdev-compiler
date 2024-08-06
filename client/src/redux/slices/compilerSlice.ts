@@ -111,7 +111,7 @@ li button:hover {
 }
 `,
         javascript:
-        `document.getElementById('taskInput').addEventListener('keypress', function(e) {
+            `document.getElementById('taskInput').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         addTask();
     }
@@ -161,11 +161,12 @@ const compilerSlice = createSlice({
         updateCodeValue: (state, action: PayloadAction<string>) => {
             state.fullCode[state.currentLanguage] = action.payload
         },
-        // updateCurrentCode: (state, action: PayloadAction<string>) => {
-        //     state.currentCode = action.payload
-        // }
+        updateFullCode: (state, action: PayloadAction<CompilerSliceStateType["fullCode"]>) => {
+
+            state.fullCode = action.payload
+        }
     }
 })
 
 export default compilerSlice.reducer
-export const { updateCurrentLanguage, updateCodeValue, } = compilerSlice.actions
+export const { updateCurrentLanguage, updateCodeValue, updateFullCode } = compilerSlice.actions
