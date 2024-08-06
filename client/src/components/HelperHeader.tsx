@@ -113,13 +113,29 @@ export default function HelperHeader() {
                 Language:
                 <Select defaultValue={currentLanguage} onValueChange={(value) => dispatch(updateCurrentLanguage(value as CompilerSliceStateType["currentLanguage"]))
                 }>
-                    <SelectTrigger className="w-[120px] bg-gray-800 focus:ring-0">
+                    <SelectTrigger className="w-[140px] bg-gray-800 focus:ring-0">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="html">HTML</SelectItem>
-                        <SelectItem value="css">CSS</SelectItem>
-                        <SelectItem value="javascript">JavaScript</SelectItem>
+                        <SelectItem value="html">
+                            <span className="flex gap-1">
+                                <img className="size-5" src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" />
+                                HTML
+                            </span>
+                        </SelectItem>
+                        <SelectItem value="css">
+                            <span className="flex gap-1">
+                                <img className="size-5" src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" />
+                                CSS
+                            </span>
+                        </SelectItem>
+                        <SelectItem value="javascript">
+                            <span className="flex gap-1">
+                                <img className="size-5" src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" />
+                                JavaScript
+                            </span>
+                        </SelectItem>
+
                     </SelectContent>
                 </Select>
 
