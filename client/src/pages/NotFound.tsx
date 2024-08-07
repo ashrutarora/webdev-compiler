@@ -9,8 +9,8 @@ export default function NotFound() {
                 <Link to="/" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300">
                     Home
                 </Link>
-                <Link to="/compiler" className="px-4 py-2 bg-green-600 text-white rounded hover:bg-blue-700 transition duration-300">
-                    Compiler
+                <Link to="/compiler" className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded transition duration-300">
+                    Code Editor
                 </Link>
             </div>
         </div>
