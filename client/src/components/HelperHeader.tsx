@@ -14,9 +14,7 @@ import {
 } from "@/redux/slices/compilerSlice";
 import { RootState } from "@/redux/store";
 import { handleError } from "@/utils/handleError";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -29,26 +27,22 @@ import { Code } from "lucide-react";
 import { Input } from "./ui/input";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
+import { useSaveCodeMutation } from "@/redux/slices/api";
 
 export default function HelperHeader() {
-  const [saveLoading, setSaveLoading] = useState<boolean>(false);
   const navigate = useNavigate();
+  const [saveCode, { isLoading }] = useSaveCodeMutation();
 
   const fullCode = useSelector(
     (state: RootState) => state.compilerSlice.fullCode
   );
+
   const handleSaveCode = async () => {
-    setSaveLoading(true);
     try {
       if (fullCode && fullCode.html) {
-        // Save code if fullCode and fullCode.html are present
-        const response = await axios.post(
-          "http://localhost:4000/compiler/save",
-          {
-            fullCode: fullCode,
-          }
-        );
-        navigate(`/compiler/${response.data.url}`, { replace: true });
+        const response = await saveCode(fullCode).unwrap();
+        navigate(`/compiler/${response.url}`, { replace: true });
+
         toast.success("Code Saved Successfully", {
           className: "bg-green-600 text-white border border-green-700",
         });
@@ -60,12 +54,11 @@ export default function HelperHeader() {
       }
     } catch (error) {
       handleError(error);
-    } finally {
-      setSaveLoading(false);
     }
   };
 
   const dispatch = useDispatch();
+
   const currentLanguage = useSelector(
     (state: RootState) => state.compilerSlice.currentLanguage
   );
@@ -77,9 +70,9 @@ export default function HelperHeader() {
           variant="success"
           className="flex justify-center items-center gap-1"
           onClick={handleSaveCode}
-          disabled={saveLoading}
+          disabled={isLoading}
         >
-          {saveLoading ? (
+          {isLoading ? (
             <>
               <span>Saving...</span>
               <LoaderCircle className="animate-spin" size={18} />
