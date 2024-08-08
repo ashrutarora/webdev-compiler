@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 export default function CodeRender() {
     const fullCode = useSelector((state: RootState) => state.compilerSlice.fullCode);
 
-    if (!fullCode || !fullCode.html || !fullCode.css || !fullCode.javascript) {
-        return <div>Loading...</div>;
+    if (!fullCode || !fullCode.html) {
+        return <div className="animate-pulse duration-50 text-red-500 font-mono text-lg">
+HTML file cannot be empty!!
+        </div>;
     }
 
     const combinedCode = `
